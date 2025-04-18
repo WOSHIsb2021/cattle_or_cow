@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "cow_setting",
+            "database": "cow",
+            "username": "root",
+            "password": "root"
+        }
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
