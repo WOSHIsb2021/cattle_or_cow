@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.InbreedingCalculatorCsvTest" time="0.051" tests="7" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="D:\code\cow_count\answer\target\test-classes;D:\code\cow_count\answer\target\classes;D:\environment\maven\apache-maven-3.6.3\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;D:\environment\maven\apache-maven-3.6.3\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="D:\environment\Java8\jdk1.8.0_351\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\wine\AppData\Local\Temp\surefire1064485318739846284\surefirebooter-20250423070111999_3.jar C:\Users\wine\AppData\Local\Temp\surefire1064485318739846284 2025-04-23T07-01-11_758-jvmRun1 surefire-20250423070111999_1tmp surefire_0-20250423070111999_2tmp"/>
+    <property name="surefire.test.class.path" value="D:\code\cow_count\answer\target\test-classes;D:\code\cow_count\answer\target\classes;D:\environment\maven\apache-maven-3.6.3\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;D:\environment\maven\apache-maven-3.6.3\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;D:\environment\maven\apache-maven-3.6.3\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\wine"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="D:\environment\Java8\jdk1.8.0_351\jre"/>
+    <property name="basedir" value="D:\code\cow_count\answer"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\wine\AppData\Local\Temp\surefire1064485318739846284\surefirebooter-20250423070111999_3.jar"/>
+    <property name="sun.boot.class.path" value="D:\environment\Java8\jdk1.8.0_351\jre\lib\resources.jar;D:\environment\Java8\jdk1.8.0_351\jre\lib\rt.jar;D:\environment\Java8\jdk1.8.0_351\jre\lib\jsse.jar;D:\environment\Java8\jdk1.8.0_351\jre\lib\jce.jar;D:\environment\Java8\jdk1.8.0_351\jre\lib\charsets.jar;D:\environment\Java8\jdk1.8.0_351\jre\lib\jfr.jar;D:\environment\Java8\jdk1.8.0_351\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_351-b10"/>
+    <property name="user.name" value="wine"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="D:\environment\Java8\jdk1.8.0_351\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="D:\environment\maven\apache-maven-3.6.3\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\wine\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_351"/>
+    <property name="user.dir" value="D:\code\cow_count\answer"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="D:\environment\Java8\jdk1.8.0_351\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\PowerShell\7;D:\environment\Java8\jdk1.8.0_351\bin;D:\environment\Java8\jdk1.8.0_351\jre\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Tailscale\;D:\environment\iperf3\iperf3.16_64;D:\environment\mingw64\bin;E:\softwares\Git\cmd;C:\Program Files\PowerShell\7\;D:\environment\ffmpeg\ffmpeg-master-latest-win64-gpl-shared\bin;C:\Program Files\Docker\Docker\resources\bin;D:\environment\maven\apache-maven-3.6.3\bin;D:\environment\mysql\mysql-8.4.4-winx64\bin;;c:\Users\wine\AppData\Local\Programs\cursor\resources\app\bin;D:\environment\python\Scripts\;D:\environment\python\;C:\Users\wine\AppData\Local\Microsoft\WindowsApps;D:\softwares\Microsoft VS Code\bin;;c:\Users\wine\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.351-b10"/>
+    <property name="java.specification.maintenance.version" value="4"/>
+    <property name="java.ext.dirs" value="D:\environment\Java8\jdk1.8.0_351\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="testInbreeding_NonExistent" classname="com.example.InbreedingCalculatorCsvTest" time="0.013">
+    <system-out><![CDATA[Loaded 28 ID mapping records.
+Loaded and processed 33 pedigree records.
+
+--- Debugging Pedigree Data for X, Y, Z, P1, P2, P3 ---
+Animal Found: Animal [ID=X, 父号=Y, 母号=Z]
+Animal Found: Animal [ID=Y, 父号=P1, 母号=P2]
+Animal Found: Animal [ID=Z, 父号=P1, 母号=P3]
+Animal Found: Animal [ID=P1, 父号=null, 母号=null]
+Animal Found: Animal [ID=P2, 父号=null, 母号=null]
+Animal Found: Animal [ID=P3, 父号=null, 母号=null]
+--- End Debugging Pedigree Data ---
+
+2025-04-23T07:01:12.327 - DEBUG (Calculator): Enter Calc Inbreeding: ID=NON_EXISTENT_ID, Depth=0
+2025-04-23T07:01:12.328 - DEBUG (Calculator): Base case Inbreeding: ID=NON_EXISTENT_ID, Animal=false, Sire=N/A, Dam=N/A
+2025-04-23T07:01:12.328 - DEBUG (Calculator): Exit Calc Inbreeding (Base Case/No Parents): ID=NON_EXISTENT_ID -> 0.0
+]]></system-out>
+  </testcase>
+  <testcase name="testInbreeding_MissingParents" classname="com.example.InbreedingCalculatorCsvTest" time="0">
+    <system-out><![CDATA[2025-04-23T07:01:12.332 - DEBUG (Calculator): Enter Calc Inbreeding: ID=HOCHNF37XC010X000034, Depth=0
+2025-04-23T07:01:12.332 - DEBUG (Calculator): Base case Inbreeding: ID=HOCHNF37XC010X000034, Animal=true, Sire=HO840M3234522255, Dam=null
+2025-04-23T07:01:12.332 - DEBUG (Calculator): Exit Calc Inbreeding (Base Case/No Parents): ID=HOCHNF37XC010X000034 -> 0.0
+]]></system-out>
+  </testcase>
+  <testcase name="testInbreeding_P1_Founder" classname="com.example.InbreedingCalculatorCsvTest" time="0">
+    <system-out><![CDATA[2025-04-23T07:01:12.333 - DEBUG (Calculator): Enter Calc Inbreeding: ID=P1, Depth=0
+2025-04-23T07:01:12.333 - DEBUG (Calculator): Base case Inbreeding: ID=P1, Animal=true, Sire=null, Dam=null
+2025-04-23T07:01:12.333 - DEBUG (Calculator): Exit Calc Inbreeding (Base Case/No Parents): ID=P1 -> 0.0
+]]></system-out>
+  </testcase>
+  <testcase name="testInbreeding_W_MappedDam" classname="com.example.InbreedingCalculatorCsvTest" time="0.011">
+    <system-out><![CDATA[2025-04-23T07:01:12.334 - DEBUG (Calculator): Enter Calc Inbreeding: ID=W, Depth=0
+2025-04-23T07:01:12.334 - DEBUG (Calculator): Enter Calc Coancestry: ID1=P4, ID2=mapped_dam_standard, Depth=1
+2025-04-23T07:01:12.341 - DEBUG (Calculator): Calculating Coancestry f_P4mapped_dam_standard by tracing parents of mapped_dam_standard
+2025-04-23T07:01:12.342 - DEBUG (Calculator): Enter Calc Coancestry: ID1=P4, ID2=P1, Depth=2
+2025-04-23T07:01:12.342 - DEBUG (Calculator): Calculating Coancestry f_P1P4 by tracing parents of P4
+2025-04-23T07:01:12.342 - DEBUG (Calculator): Coancestry: f_P1P4 = 0.5 * (f_P1null=0.000000 + f_P1null=0.000000) = 0.000000
+2025-04-23T07:01:12.342 - DEBUG (Calculator): Caching Coancestry: Key=(P1, P4) -> 0.000000
+2025-04-23T07:01:12.342 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=P4, ID2=P1 -> 0.000000
+2025-04-23T07:01:12.342 - DEBUG (Calculator): Enter Calc Coancestry: ID1=P4, ID2=P2, Depth=2
+2025-04-23T07:01:12.342 - DEBUG (Calculator): Calculating Coancestry f_P2P4 by tracing parents of P4
+2025-04-23T07:01:12.342 - DEBUG (Calculator): Coancestry: f_P2P4 = 0.5 * (f_P2null=0.000000 + f_P2null=0.000000) = 0.000000
+2025-04-23T07:01:12.342 - DEBUG (Calculator): Caching Coancestry: Key=(P2, P4) -> 0.000000
+2025-04-23T07:01:12.343 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=P4, ID2=P2 -> 0.000000
+2025-04-23T07:01:12.343 - DEBUG (Calculator): Coancestry: f_P4mapped_dam_standard = 0.5 * (f_P4P1=0.000000 + f_P4P2=0.000000) = 0.000000
+2025-04-23T07:01:12.344 - DEBUG (Calculator): Caching Coancestry: Key=(P4, mapped_dam_standard) -> 0.000000
+2025-04-23T07:01:12.344 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=P4, ID2=mapped_dam_standard -> 0.000000
+2025-04-23T07:01:12.344 - DEBUG (Calculator): Calculated Inbreeding: ID=W -> 0.000000
+2025-04-23T07:01:12.344 - DEBUG (Calculator): Exit Calc Inbreeding (Calculated): ID=W -> 0.000000
+]]></system-out>
+  </testcase>
+  <testcase name="testInbreeding_Y_UnrelatedParents" classname="com.example.InbreedingCalculatorCsvTest" time="0.001">
+    <system-out><![CDATA[2025-04-23T07:01:12.345 - DEBUG (Calculator): Enter Calc Inbreeding: ID=Y, Depth=0
+2025-04-23T07:01:12.345 - DEBUG (Calculator): Enter Calc Coancestry: ID1=P1, ID2=P2, Depth=1
+2025-04-23T07:01:12.345 - DEBUG (Calculator): Calculating Coancestry f_P1P2 by tracing parents of P2
+2025-04-23T07:01:12.345 - DEBUG (Calculator): Coancestry: f_P1P2 = 0.5 * (f_P1null=0.000000 + f_P1null=0.000000) = 0.000000
+2025-04-23T07:01:12.345 - DEBUG (Calculator): Caching Coancestry: Key=(P1, P2) -> 0.000000
+2025-04-23T07:01:12.345 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=P1, ID2=P2 -> 0.000000
+2025-04-23T07:01:12.345 - DEBUG (Calculator): Calculated Inbreeding: ID=Y -> 0.000000
+2025-04-23T07:01:12.345 - DEBUG (Calculator): Exit Calc Inbreeding (Calculated): ID=Y -> 0.000000
+]]></system-out>
+  </testcase>
+  <testcase name="testInbreeding_X_HalfSibMating" classname="com.example.InbreedingCalculatorCsvTest" time="0.004">
+    <system-out><![CDATA[2025-04-23T07:01:12.346 - DEBUG (Calculator): Enter Calc Inbreeding: ID=X, Depth=0
+2025-04-23T07:01:12.346 - DEBUG (Calculator): Enter Calc Coancestry: ID1=Y, ID2=Z, Depth=1
+2025-04-23T07:01:12.346 - DEBUG (Calculator): Calculating Coancestry f_YZ by tracing parents of Z
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Enter Calc Coancestry: ID1=Y, ID2=P1, Depth=2
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Calculating Coancestry f_P1Y by tracing parents of Y
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Enter Calc Coancestry: ID1=P1, ID2=P1, Depth=3
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Calculating Self-Coancestry for P1
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Enter Calc Inbreeding: ID=P1, Depth=4
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Exit Calc Inbreeding (Cache Hit): ID=P1 -> 0.000000
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Self-Coancestry: f_P1P1 = 0.5 * (1 + F_P1=0.000000) = 0.500000
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Caching Coancestry: Key=(P1, P1) -> 0.500000
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=P1, ID2=P1 -> 0.500000
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Enter Calc Coancestry: ID1=P1, ID2=P2, Depth=3
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Exit Calc Coancestry (Cache Hit): Key=(P1, P2) -> 0.000000
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Coancestry: f_P1Y = 0.5 * (f_P1P1=0.500000 + f_P1P2=0.000000) = 0.250000
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Caching Coancestry: Key=(P1, Y) -> 0.250000
+2025-04-23T07:01:12.347 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=Y, ID2=P1 -> 0.250000
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Enter Calc Coancestry: ID1=Y, ID2=P3, Depth=2
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Calculating Coancestry f_P3Y by tracing parents of Y
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Enter Calc Coancestry: ID1=P3, ID2=P1, Depth=3
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Calculating Coancestry f_P1P3 by tracing parents of P3
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Coancestry: f_P1P3 = 0.5 * (f_P1null=0.000000 + f_P1null=0.000000) = 0.000000
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Caching Coancestry: Key=(P1, P3) -> 0.000000
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=P3, ID2=P1 -> 0.000000
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Enter Calc Coancestry: ID1=P3, ID2=P2, Depth=3
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Calculating Coancestry f_P2P3 by tracing parents of P3
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Coancestry: f_P2P3 = 0.5 * (f_P2null=0.000000 + f_P2null=0.000000) = 0.000000
+2025-04-23T07:01:12.348 - DEBUG (Calculator): Caching Coancestry: Key=(P2, P3) -> 0.000000
+2025-04-23T07:01:12.349 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=P3, ID2=P2 -> 0.000000
+2025-04-23T07:01:12.349 - DEBUG (Calculator): Coancestry: f_P3Y = 0.5 * (f_P3P1=0.000000 + f_P3P2=0.000000) = 0.000000
+2025-04-23T07:01:12.349 - DEBUG (Calculator): Caching Coancestry: Key=(P3, Y) -> 0.000000
+2025-04-23T07:01:12.349 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=Y, ID2=P3 -> 0.000000
+2025-04-23T07:01:12.349 - DEBUG (Calculator): Coancestry: f_YZ = 0.5 * (f_YP1=0.250000 + f_YP3=0.000000) = 0.125000
+2025-04-23T07:01:12.349 - DEBUG (Calculator): Caching Coancestry: Key=(Y, Z) -> 0.125000
+2025-04-23T07:01:12.350 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=Y, ID2=Z -> 0.125000
+2025-04-23T07:01:12.350 - DEBUG (Calculator): Calculated Inbreeding: ID=X -> 0.125000
+2025-04-23T07:01:12.350 - DEBUG (Calculator): Exit Calc Inbreeding (Calculated): ID=X -> 0.125000
+]]></system-out>
+  </testcase>
+  <testcase name="testInbreeding_MappedDam" classname="com.example.InbreedingCalculatorCsvTest" time="0.002">
+    <system-out><![CDATA[2025-04-23T07:01:12.351 - DEBUG (Calculator): Enter Calc Inbreeding: ID=HOCHNF37XC010X000001, Depth=0
+2025-04-23T07:01:12.351 - DEBUG (Calculator): Enter Calc Coancestry: ID1=HO840M3234522255, ID2=HOCHNF37XC010T000XXX, Depth=1
+2025-04-23T07:01:12.351 - DEBUG (Calculator): Calculating Coancestry f_HO840M3234522255HOCHNF37XC010T000XXX by tracing parents of HOCHNF37XC010T000XXX
+2025-04-23T07:01:12.351 - DEBUG (Calculator): Enter Calc Coancestry: ID1=HO840M3234522255, ID2=P1, Depth=2
+2025-04-23T07:01:12.351 - DEBUG (Calculator): Calculating Coancestry f_HO840M3234522255P1 by tracing parents of P1
+2025-04-23T07:01:12.351 - DEBUG (Calculator): Coancestry: f_HO840M3234522255P1 = 0.5 * (f_HO840M3234522255null=0.000000 + f_HO840M3234522255null=0.000000) = 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Caching Coancestry: Key=(HO840M3234522255, P1) -> 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=HO840M3234522255, ID2=P1 -> 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Enter Calc Coancestry: ID1=HO840M3234522255, ID2=P2, Depth=2
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Calculating Coancestry f_HO840M3234522255P2 by tracing parents of P2
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Coancestry: f_HO840M3234522255P2 = 0.5 * (f_HO840M3234522255null=0.000000 + f_HO840M3234522255null=0.000000) = 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Caching Coancestry: Key=(HO840M3234522255, P2) -> 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=HO840M3234522255, ID2=P2 -> 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Coancestry: f_HO840M3234522255HOCHNF37XC010T000XXX = 0.5 * (f_HO840M3234522255P1=0.000000 + f_HO840M3234522255P2=0.000000) = 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Caching Coancestry: Key=(HO840M3234522255, HOCHNF37XC010T000XXX) -> 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Exit Calc Coancestry (Calculated): ID1=HO840M3234522255, ID2=HOCHNF37XC010T000XXX -> 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Calculated Inbreeding: ID=HOCHNF37XC010X000001 -> 0.000000
+2025-04-23T07:01:12.352 - DEBUG (Calculator): Exit Calc Inbreeding (Calculated): ID=HOCHNF37XC010X000001 -> 0.000000
+]]></system-out>
+  </testcase>
+</testsuite>

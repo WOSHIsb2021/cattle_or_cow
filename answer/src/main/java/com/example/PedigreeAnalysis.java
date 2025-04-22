@@ -25,7 +25,7 @@ public class PedigreeAnalysis {
     private static final String MAPPING_INTERNAL_ID_COL = "id"; // 对应表中的母牛编号 (需要被映射的ID)
     private static final String MAPPING_STANDARD_ID_COL = "standard_id"; // 对应表中的标准牛号 (目标ID)
     // private static final String MAPPING_EAR_NUM_COL = "ear_num"; // 耳号
-    // (暂时不需要映射，后面3可以添加)
+    // (暂时不需要映射，后面可以添加)
 
     // --- 日志文件配置 ---
     private static final String LOG_FILE = "pedigree_analysis_log.txt"; // 日志文件名

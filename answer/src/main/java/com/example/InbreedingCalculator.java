@@ -48,15 +48,21 @@ public class InbreedingCalculator {
      * @return 近交系数值
      */
     private double calculateInbreedingRecursive(String animalId, int depth) {
+        logDebug(String.format("Enter Calc Inbreeding: ID=%s, Depth=%d", animalId, depth)); // <-- 添加日志
+
         // 检查递归深度是否超限
         if (depth > MAX_DEPTH) {
             logWarn(String.format("警告: 计算个体 %s 的近交系数时超过最大递归深度(%d)。假定其值为 0。", animalId, MAX_DEPTH));
+            logDebug(String.format("Exit Calc Inbreeding (Max Depth): ID=%s -> 0.0", animalId)); // <-- 添加日志
             return 0.0; // 返回 0 或抛出异常
         }
 
         // 1. 检查近交系数缓存
         if (inbreedingCache.containsKey(animalId)) {
-            return inbreedingCache.get(animalId);
+            // return inbreedingCache.get(animalId);
+            double cachedValue = inbreedingCache.get(animalId);
+            logDebug(String.format("Exit Calc Inbreeding (Cache Hit): ID=%s -> %.6f", animalId, cachedValue)); // <-- 添加日志
+            return cachedValue;
         }
 
         // 2. 获取个体信息
@@ -64,7 +70,12 @@ public class InbreedingCalculator {
 
         // 3. 基础情况: 个体不存在或父母信息不全
         if (animal == null || animal.getSireId() == null || animal.getDamId() == null) {
+            logDebug(String.format("Base case Inbreeding: ID=%s, Animal=%s, Sire=%s, Dam=%s",
+                         animalId, animal != null,
+                         (animal != null) ? animal.getSireId() : "N/A",
+                         (animal != null) ? animal.getDamId() : "N/A")); // <-- 更详细的日志
             inbreedingCache.put(animalId, 0.0); // 假定未知父母的个体近交系数为 0
+            logDebug(String.format("Exit Calc Inbreeding (Base Case/No Parents): ID=%s -> 0.0", animalId)); // <-- 添加日志
             return 0.0;
         }
 
@@ -75,7 +86,9 @@ public class InbreedingCalculator {
         double coancestrySD = calculateCoancestryRecursive(sireId, damId, depth + 1);
 
         // 5. 存入缓存并返回
+        logDebug(String.format("Calculated Inbreeding: ID=%s -> %.6f", animalId, coancestrySD)); // <-- 添加日志
         inbreedingCache.put(animalId, coancestrySD);
+        logDebug(String.format("Exit Calc Inbreeding (Calculated): ID=%s -> %.6f", animalId, coancestrySD)); // <-- 添加日志
         return coancestrySD;
     }
 
@@ -89,60 +102,101 @@ public class InbreedingCalculator {
      * @return 亲缘系数值
      */
     private double calculateCoancestryRecursive(String id1, String id2, int depth) {
-        // 检查递归深度
-        if (depth > MAX_DEPTH) {
-            logWarn(String.format("警告: 计算个体 %s 和 %s 的亲缘系数时超过最大递归深度(%d)。假定其值为 0。", id1, id2, MAX_DEPTH));
-            return 0.0;
-        }
+        logDebug(String.format("Enter Calc Coancestry: ID1=%s, ID2=%s, Depth=%d", id1, id2, depth)); // <-- 添加日志
 
-        // 1. 确保缓存键的顺序一致性 (id1 <= id2)
-        String keyId1 = (id1.compareTo(id2) <= 0) ? id1 : id2;
-        String keyId2 = (id1.compareTo(id2) <= 0) ? id2 : id1;
-        Pair<String, String> cacheKey = new Pair<>(keyId1, keyId2);
+       // 检查递归深度
+       if (depth > MAX_DEPTH) {
+           logWarn(String.format("警告: 计算个体 %s 和 %s 的亲缘系数时超过最大递归深度(%d)。假定其值为 0。", id1, id2, MAX_DEPTH));
+           logDebug(String.format("Exit Calc Coancestry (Max Depth): ID1=%s, ID2=%s -> 0.0", id1, id2)); // <-- 添加日志
+           return 0.0;
+       }
 
-        // 2. 检查亲缘系数缓存
-        if (coancestryCache.containsKey(cacheKey)) {
-            return coancestryCache.get(cacheKey);
-        }
+       // 1. 确保缓存键的顺序一致性 (id1 <= id2)
+       // 处理 null ID 的情况，避免 NullPointerException
+       String effectiveId1 = (id1 == null) ? "NULL_ID" : id1;
+       String effectiveId2 = (id2 == null) ? "NULL_ID" : id2;
+       String keyId1 = (effectiveId1.compareTo(effectiveId2) <= 0) ? effectiveId1 : effectiveId2;
+       String keyId2 = (effectiveId1.compareTo(effectiveId2) <= 0) ? effectiveId2 : effectiveId1;
+       // 如果原始 id1 或 id2 为 null，则不应该缓存这对组合，因为它们总是返回 0
+       boolean canCache = (id1 != null && id2 != null);
+       Pair<String, String> cacheKey = null;
+       if (canCache) {
+           cacheKey = new Pair<>(keyId1, keyId2);
+       }
 
-        // 3. 基础情况: 任意一个体是未知的 (ID 为 null 或不在系谱中)
-        if (id1 == null || id2 == null || !pedigree.containsKey(id1) || !pedigree.containsKey(id2)) {
-            coancestryCache.put(cacheKey, 0.0);
-            return 0.0;
-        }
 
-        double coancestry;
-        // 4. 递归计算
-        // 情况 1: 计算个体与自身的亲缘系数 f_AA = 0.5 * (1 + F_A)
-        if (id1.equals(id2)) {
-            // 需要先递归计算该个体的近交系数 F_A
-            double inbreedingA = calculateInbreedingRecursive(id1, depth + 1);
-            coancestry = 0.5 * (1.0 + inbreedingA);
-        }
-        // 情况 2: 计算不同个体之间的亲缘系数 f_AB = 0.5 * (f_{A, Sire_B} + f_{A, Dam_B})
-        else {
-            // 选择 id2 来追溯其父母 (也可以选择 id1)
-            Animal animal2 = pedigree.get(id2);
-            String sireId2 = animal2.getSireId();
-            String damId2 = animal2.getDamId();
+       // 2. 检查亲缘系数缓存
+       if (canCache && coancestryCache.containsKey(cacheKey)) {
+           double cachedValue = coancestryCache.get(cacheKey);
+           logDebug(String.format("Exit Calc Coancestry (Cache Hit): Key=(%s, %s) -> %.6f", keyId1, keyId2, cachedValue)); // <-- 添加日志
+           return cachedValue;
+       }
 
-            // 如果 id2 的父母都未知，则亲缘系数为 0
-            if (sireId2 == null && damId2 == null) {
-                coancestry = 0.0;
-            } else {
-                // 递归计算 f_{id1, Sire_id2} 和 f_{id1, Dam_id2}
-                double coanS = (sireId2 == null) ? 0.0 : calculateCoancestryRecursive(id1, sireId2, depth + 1);
-                double coanD = (damId2 == null) ? 0.0 : calculateCoancestryRecursive(id1, damId2, depth + 1);
-                coancestry = 0.5 * (coanS + coanD);
-            }
-        }
+       // 3. 基础情况: 任意一个体是未知的 (ID 为 null 或不在系谱中)
+       if (id1 == null || id2 == null || !pedigree.containsKey(id1) || !pedigree.containsKey(id2)) {
+           logDebug(String.format("Base case Coancestry: ID1=%s(Exists:%b), ID2=%s(Exists:%b)",
+                        id1, (id1 != null && pedigree.containsKey(id1)),
+                        id2, (id2 != null && pedigree.containsKey(id2)))); // <-- 更详细的日志
+           // 不需要缓存这个结果，因为它总是 0
+           logDebug(String.format("Exit Calc Coancestry (Base Case/Not Found): ID1=%s, ID2=%s -> 0.0", id1, id2)); // <-- 添加日志
+           return 0.0;
+       }
 
-        // 5. 存入缓存并返回
-        coancestryCache.put(cacheKey, coancestry);
-        return coancestry;
-    }
+       double coancestry;
+       // 4. 递归计算
+       // 情况 1: 计算个体与自身的亲缘系数 f_AA = 0.5 * (1 + F_A)
+       if (id1.equals(id2)) {
+           logDebug(String.format("Calculating Self-Coancestry for %s", id1)); // <-- 添加日志
+           // 需要先递归计算该个体的近交系数 F_A
+           double inbreedingA = calculateInbreedingRecursive(id1, depth + 1);
+           coancestry = 0.5 * (1.0 + inbreedingA);
+           logDebug(String.format("Self-Coancestry: f_%s%s = 0.5 * (1 + F_%s=%.6f) = %.6f", id1, id1, id1, inbreedingA, coancestry)); // <-- 添加日志
+       }
+       // 情况 2: 计算不同个体之间的亲缘系数 f_AB
+       else {
+           // 选择 id2 来追溯其父母 (也可以选择 id1, 确保追溯顺序)
+           // 为保证递归路径更一致，总是选择字典序较大的 ID 来追溯父母
+           String traceId = (id1.compareTo(id2) > 0) ? id1 : id2;
+           String otherId = traceId.equals(id1) ? id2 : id1;
+
+           logDebug(String.format("Calculating Coancestry f_%s%s by tracing parents of %s", otherId, traceId, traceId)); // <-- 添加日志
+
+           Animal animalToTrace = pedigree.get(traceId);
+           String sireIdTrace = animalToTrace.getSireId();
+           String damIdTrace = animalToTrace.getDamId();
+
+           // 递归计算 f_{otherId, Sire_traceId} 和 f_{otherId, Dam_traceId}
+           double coanS = (sireIdTrace == null) ? 0.0 : calculateCoancestryRecursive(otherId, sireIdTrace, depth + 1);
+           double coanD = (damIdTrace == null) ? 0.0 : calculateCoancestryRecursive(otherId, damIdTrace, depth + 1);
+           coancestry = 0.5 * (coanS + coanD);
+            logDebug(String.format("Coancestry: f_%s%s = 0.5 * (f_%s%s=%.6f + f_%s%s=%.6f) = %.6f",
+                         otherId, traceId,
+                         otherId, sireIdTrace, coanS,
+                         otherId, damIdTrace, coanD,
+                         coancestry)); // <-- 添加日志
+       }
+
+       // 5. 存入缓存并返回
+       if (canCache) {
+           logDebug(String.format("Caching Coancestry: Key=(%s, %s) -> %.6f", keyId1, keyId2, coancestry)); // <-- 添加日志
+           coancestryCache.put(cacheKey, coancestry);
+       }
+       logDebug(String.format("Exit Calc Coancestry (Calculated): ID1=%s, ID2=%s -> %.6f", id1, id2, coancestry)); // <-- 添加日志
+       return coancestry;
+   }
 
     // --- 日志辅助方法 (内部使用) ---
+
+    /** 记录调试信息 */
+    private void logDebug(String message) {
+        if (logger != null) {
+            // 输出 DEBUG 级别的日志
+            logger.println(java.time.LocalDateTime.now() + " - DEBUG (Calculator): " + message);
+            logger.flush(); // 确保立即写入
+        }
+        // Debug 日志通常不在控制台显示后备信息，避免过多输出
+    }
+
     /** 记录警告信息 */
     private void logWarn(String message) {
         if (logger != null) {

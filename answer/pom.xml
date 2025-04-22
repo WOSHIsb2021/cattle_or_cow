@@ -11,41 +11,65 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- 添加源码编码 -->
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <exec.mainClass>package com.example.PedigreeAnalysis</exec.mainClass>
+        <exec.mainClass>com.example.PedigreeAnalysis</exec.mainClass> <!-- 修正 mainClass -->
     </properties>
 
     <dependencies>
-        <!-- 添加 MySQL Connector/J 依赖 -->
+        <!-- 更新后的 MySQL Connector/J 依赖 -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <!-- 使用MySQL服务器的版本, 8.0.33 是常用版本 -->
+            <groupId>com.mysql</groupId>          <!-- 修正 groupId -->
+            <artifactId>mysql-connector-j</artifactId> <!-- 修正 artifactId -->
             <version>8.0.33</version>
+        </dependency>
+
+        <!-- 添加 JUnit 5 测试依赖 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- 配置 maven-compiler-plugin -->
+            <!-- 配置 maven-compiler-plugin (确保只有一个) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version> <!-- Use an appropriate version -->
+                <version>3.8.1</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding> <!-- 应用编码配置 -->
                 </configuration>
             </plugin>
+
+            <!-- 配置 maven-surefire-plugin 以运行 JUnit 5 测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+            </plugin>
+
             <!-- 配置 exec-maven-plugin 以便运行 -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version> <!-- 版本 -->
+                <version>3.0.0</version>
                 <configuration>
                     <mainClass>${exec.mainClass}</mainClass>
                 </configuration>
             </plugin>
+            <!-- 第一个重复的 compiler 插件已被删除 -->
         </plugins>
     </build>
 
